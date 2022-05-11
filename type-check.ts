@@ -134,7 +134,7 @@ export function tcDef(env : GlobalTypeEnv, fun : FunDef<SourceLocation>) : FunDe
   locals.expectedRet = fun.ret;
   locals.topLevel = false;
   fun.parameters.forEach(p => locals.vars.set(p.name, p.type));
-  var tcinits: VarInit<[Type, SourceLocation]>[];
+  var tcinits: VarInit<[Type, SourceLocation]>[] = [];
   fun.inits.forEach(init => {
     const tcinit = tcInit(env, init);
     tcinits.push(tcinit);
